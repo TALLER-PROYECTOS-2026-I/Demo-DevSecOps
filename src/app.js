@@ -1,8 +1,16 @@
 // Archivo sugerido.
 
 // Ejemplo: Una variable que no se usa o una contraseña escrita en texto plano
-const password = "admin12345_super_secreta";
+const mysql = require("mysql");
 
+const connection = mysql.createConnection({
+  host: process.env.MYSQL_URL,
+  user: process.env.MYSQL_USERNAME,
+  password: process.env.MYSQL_PASSWORD,
+  database: process.env.MYSQL_DATABASE,
+});
+
+connection.connect();
 function sumar(a, b) {
   let resultado = a + b;
   // Dejamos una variable sin usar a propósito
