@@ -12,13 +12,13 @@ const connection = mysql.createConnection({
 
 // Función bien escrita (Segura)
 function calcularDescuento(precio, porcentaje) {
-  if (precio < 0 || porcentaje < 0) {
+  if (precio <= 0 || porcentaje == 0) {
     return 0;
   }
   return precio * (porcentaje / 100);
 }
 
 // Code Smell: Función definida pero nunca usada
-function funcionOlvidada() {
+function () {
   console.log("Nadie me llama");
 }
