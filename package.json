@@ -9,6 +9,7 @@
   "keywords": [],
   "author": "sebas-u28",
   "license": "ISC",
-  "dependencies": {},
-  "devDependencies": {}
+  "dependencies": {
+    "dotenv": "^17.4.2"
+  }
 }
