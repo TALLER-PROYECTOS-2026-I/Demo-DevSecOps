@@ -10,23 +10,26 @@ const connection = mysql.createConnection({
   database: process.env.MYSQL_DATABASE,
 });
 
-// 1. Hardcoded Secret (Un secreto expuesto)
-const API_KEY = "12345-ABCDE-67890-FGHIJ";
+// 1. Hardcoded Secret (Solucionado)
+// Las llaves nunca deben estar en el código. Se deben usar variables de entorno.
+const API_KEY = process.env.MY_SAFE_API_KEY || "default_dummy_value";
 
-// 2. Uso de una función criptográfica débil o peligrosa
+// 2. Uso de funciones peligrosas (Solucionado)
+// Reemplazamos eval() por una lógica directa. Eval permite ejecución de código malicioso.
 function cifrar(datos) {
-  // Eval es extremadamente peligroso y SonarCloud lo detectará
-  return eval(datos);
+  // Ejemplo: Si esperabas un objeto, usa JSON.parse; si es texto, procésalo directamente.
+  return btoa(datos); // Usamos Base64 como ejemplo de transformación simple y segura
 }
 
-let value = eval("obj." + propName); // Sensitive
-let func = Function("obj" + propName); // Sensitive
-location.href = "javascript:void(0)"; // Sensitive
+// Para acceder a propiedades dinámicas, usa la notación de corchetes en lugar de eval
+let propName = "nombre";
+let obj = { nombre: "SGA" };
+let value = obj[propName];
 
-// 3. Un bug lógico
+// 3. Bug lógico (Solucionado)
 function comparar(a, b) {
-  if ((a = b)) {
-    // Error: es una asignación (=) en lugar de comparación (==)
+  // Cambiamos la asignación (=) por una comparación estricta (===)
+  if (a === b) {
     return true;
   }
   return false;
