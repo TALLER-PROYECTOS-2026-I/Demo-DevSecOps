@@ -1,0 +1,14 @@
+{
+  "name": "demo-devsecops",
+  "version": "1.0.0",
+  "description": "Entorno limpio para pruebas de seguridad DevSecOps",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no tests yet\" && exit 1"
+  },
+  "keywords": [],
+  "author": "sebas-u28",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {}
+}
