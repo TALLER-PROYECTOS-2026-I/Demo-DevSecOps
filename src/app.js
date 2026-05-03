@@ -19,6 +19,10 @@ function cifrar(datos) {
   return eval(datos);
 }
 
+let value = eval("obj." + propName); // Sensitive
+let func = Function("obj" + propName); // Sensitive
+location.href = "javascript:void(0)"; // Sensitive
+
 // 3. Un bug lógico
 function comparar(a, b) {
   if ((a = b)) {
